@@ -38,9 +38,18 @@ WORKDIR /workspace
 
 # some Vitis deps require a timezone to be specified, which hangs in Docker
 # use workaround from https://grigorkh.medium.com/fix-tzdata-hangs-docker-image-build-cdb52cc3360d
-ENV TZ="Europe/Dublin"
+#ENV TZ="Europe/Dublin"
+ENV TZ="Asia/Shanghai"
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+# Change ubuntu repo and DNS server
+# RUN sed -i 's@/archive.ubuntu.com/@/cn.archive.ubuntu.com/@g' /etc/apt/sources.list
+COPY docker/sources.list /etc/apt/sources.list
+# RUN cat /etc/apt/sources.list
+RUN echo "$(sed 's/10.8.4.4/8.8.8.8/g' /etc/resolv.conf)" > /etc/resolv.conf
+# RUN cat /etc/resolv.conf
+RUN apt-get clean
+RUN rm -Rf /var/lib/apt/lists/*
 
 RUN apt-get update
 RUN apt-get -y upgrade

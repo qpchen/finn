@@ -5,6 +5,7 @@ pipeline {
         string(name: 'VIVADO_PATH', defaultValue: '', description: 'Path to Vivado installation')
         string(name: 'PYNQ_BOARD', defaultValue: 'Pynq-Z1', description: 'PYNQ board type')
         string(name: 'PYNQ_IP', defaultValue: '', description: 'PYNQ board IP address')
+        string(name: 'PYNQ_PORT', defaultValue: '22', description: 'PYNQ board PORT')
         string(name: 'PYNQ_USERNAME', defaultValue: 'xilinx', description: 'PYNQ board username')
         string(name: 'PYNQ_PASSWORD', defaultValue: 'xilinx', description: 'PYNQ board password')
         string(name: 'PYNQ_TARGET_DIR', defaultValue: '/home/xilinx/finn', description: 'PYNQ board target deployment directory')
@@ -51,6 +52,7 @@ pipeline {
                 -e VIVADO_PATH=${params.VIVADO_PATH} \
                 -e PYNQ_BOARD=${params.PYNQ_BOARD} \
                 -e PYNQ_IP=${params.PYNQ_IP} \
+                -e PYNQ_PORT=${params.PYNQ_PORT} \
                 -e PYNQ_USERNAME=${params.PYNQ_USERNAME} \
                 -e PYNQ_PASSWORD=${params.PYNQ_PASSWORD} \
                 -e PYNQ_TARGET_DIR=${params.PYNQ_TARGET_DIR} \
@@ -71,6 +73,7 @@ pipeline {
                 -e VIVADO_PATH=${params.VIVADO_PATH} \
                 -e PYNQ_BOARD=${params.PYNQ_BOARD} \
                 -e PYNQ_IP=${params.PYNQ_IP} \
+                -e PYNQ_PORT=${params.PYNQ_PORT} \
                 -e PYNQ_USERNAME=${params.PYNQ_USERNAME} \
                 -e PYNQ_PASSWORD=${params.PYNQ_PASSWORD} \
                 -e PYNQ_TARGET_DIR=${params.PYNQ_TARGET_DIR} \
@@ -91,6 +94,7 @@ pipeline {
                 -e VIVADO_PATH=${params.VIVADO_PATH} \
                 -e PYNQ_BOARD=${params.PYNQ_BOARD} \
                 -e PYNQ_IP=${params.PYNQ_IP} \
+                -e PYNQ_PORT=${params.PYNQ_PORT} \
                 -e PYNQ_USERNAME=${params.PYNQ_USERNAME} \
                 -e PYNQ_PASSWORD=${params.PYNQ_PASSWORD} \
                 -e PYNQ_TARGET_DIR=${params.PYNQ_TARGET_DIR} \
