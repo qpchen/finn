@@ -96,5 +96,7 @@ MANIFEST
 
 # generated files as part of end2end notebooks
 /notebooks/end2end_example/**/*.onnx
+/notebooks/end2end_example/**/*.npz
+/notebooks/end2end_example/cybersecurity/state_dict_self-trained.pth
 /notebooks/pynq_alveo_examples
 #/notebooks/**/*.xclbin
