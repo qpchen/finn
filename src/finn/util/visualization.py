@@ -37,6 +37,10 @@ def showSrc(what):
 
 
 def showInNetron(model_filename):
-    netron.start(model_filename, address=("0.0.0.0", 8081))
+    # netron.start(model_filename, address=("0.0.0.0", 8081))
+    # localhost_url = os.getenv("LOCALHOST_URL", default="localhost")
+    # return IFrame(src="http://%s:8081/" % localhost_url, width="100%", height=400)
+    netron_port = os.getenv("NETRON_PORT", default="8081")
+    netron.start(model_filename, address=("0.0.0.0", int(netron_port)))
     localhost_url = os.getenv("LOCALHOST_URL", default="localhost")
-    return IFrame(src="http://%s:8081/" % localhost_url, width="100%", height=400)
+    return IFrame(src="http://%s:%s/" % (localhost_url, netron_port), width="100%", height=400)
